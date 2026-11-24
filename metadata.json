@@ -1,0 +1,6 @@
+{
+  "name": "Fatih Educations",
+  "description": "Поможем поступить в бесплатные университеты Саудовской Аравии, ОАЭ, Катара, Турции, Индонезии и Кувейта.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

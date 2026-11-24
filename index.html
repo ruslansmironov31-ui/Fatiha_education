@@ -1,0 +1,1036 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fatiha Educations — Гранты и бесплатное поступление в зарубежные вузы</title>
+    <meta
+      name="description"
+      content="Поможем поступить в бесплатные университеты Саудовской Аравии, ОАЭ, Катара, Турции, Индонезии и Кувейта. Полное сопровождение документов и подача заявок на гранты."
+    />
+    <meta
+      property="og:title"
+      content="Fatiha Educations — Поступление на грант в ведущие вузы мира"
+    />
+    <meta
+      property="og:description"
+      content="Поможем поступить в бесплатные университеты Саудовской Аравии, ОАЭ, Катара, Турции, Индонезии и Кувейта."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Базовые мета-теги безопасности (CSP и Referrer-Policy) -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self';"
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+
+    <!-- Типографика: Plus Jakarta Sans (заголовки) + Manrope (текст) + JetBrains Mono (числа) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Manrope:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Перейти к основному содержанию</a>
+
+    <!-- ШАПКА САЙТА: строгая 3-зонная структура -->
+    <header class="site-header" id="site-header">
+      <div class="container header-inner">
+        <!-- Зона 1: Логотип -->
+        <a href="#hero" class="brand-mark">
+          <img
+            src="/assets/aistudio/photo_2024-02-02_00-17-37_37289492.jpg"
+            alt="Логотип Fatiha Educations"
+            class="brand-logo"
+            width="38"
+            height="38"
+          />
+          <span class="brand-text">Fatiha <span class="brand-accent">Educations</span></span>
+        </a>
+
+        <!-- Зона 2: Навигация -->
+        <nav class="main-nav" aria-label="Основная навигация">
+          <div class="nav-dropdown-wrapper" id="nav-universities-wrapper">
+            <button
+              type="button"
+              class="nav-link nav-dropdown-trigger"
+              id="nav-universities-btn"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="nav-universities-menu"
+            >
+              <span>Вузы</span>
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+
+            <div
+              class="nav-dropdown-menu"
+              id="nav-universities-menu"
+              role="menu"
+              aria-label="Быстрый выбор по странам и статусу"
+            >
+              <div class="dropdown-group">
+                <p class="dropdown-heading">Страны</p>
+                <button type="button" class="dropdown-item" data-quick-country="all" role="menuitem">
+                  Все направления
+                </button>
+                <button type="button" class="dropdown-item" data-quick-country="Саудовская Аравия" role="menuitem">
+                  Саудовская Аравия
+                </button>
+                <button type="button" class="dropdown-item" data-quick-country="ОАЭ" role="menuitem">
+                  ОАЭ
+                </button>
+                <button type="button" class="dropdown-item" data-quick-country="Катар" role="menuitem">
+                  Катар
+                </button>
+                <button type="button" class="dropdown-item" data-quick-country="Турция" role="menuitem">
+                  Турция
+                </button>
+                <button type="button" class="dropdown-item" data-quick-country="Индонезия" role="menuitem">
+                  Индонезия
+                </button>
+                <button type="button" class="dropdown-item" data-quick-country="Кувейт" role="menuitem">
+                  Кувейт
+                </button>
+              </div>
+              <div class="dropdown-divider"></div>
+              <div class="dropdown-group">
+                <p class="dropdown-heading">Статус приёма</p>
+                <button type="button" class="dropdown-item" data-quick-status="open" role="menuitem">
+                  Приём открыт сейчас
+                </button>
+                <button type="button" class="dropdown-item" data-quick-status="soon" role="menuitem">
+                  Скоро открытие
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <a href="#applicant-guide" class="nav-link">Абитуриенту</a>
+          <a href="#services" class="nav-link">Услуги</a>
+          <a href="#about" class="nav-link">О нас</a>
+        </nav>
+
+        <!-- Зона 3: Единственная основная кнопка действия -->
+        <div class="header-actions">
+          <a href="#application-form" class="btn btn-primary header-cta">Подать заявку</a>
+          <button
+            type="button"
+            class="mobile-menu-toggle"
+            id="mobile-menu-toggle"
+            aria-label="Открыть меню"
+            aria-expanded="false"
+            aria-controls="mobile-drawer"
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Мобильное выдвижное меню -->
+      <div class="mobile-drawer" id="mobile-drawer" hidden>
+        <div class="container mobile-drawer-inner">
+          <a href="#universities" class="mobile-nav-link">Каталог вузов</a>
+          <div class="mobile-country-grid">
+            <button type="button" class="mobile-filter-link" data-quick-country="Саудовская Аравия">Саудовская Аравия</button>
+            <button type="button" class="mobile-filter-link" data-quick-country="ОАЭ">ОАЭ</button>
+            <button type="button" class="mobile-filter-link" data-quick-country="Катар">Катар</button>
+            <button type="button" class="mobile-filter-link" data-quick-country="Турция">Турция</button>
+            <button type="button" class="mobile-filter-link" data-quick-country="Индонезия">Индонезия</button>
+            <button type="button" class="mobile-filter-link" data-quick-country="Кувейт">Кувейт</button>
+          </div>
+          <a href="#applicant-guide" class="mobile-nav-link">Абитуриенту</a>
+          <a href="#services" class="mobile-nav-link">Услуги</a>
+          <a href="#about" class="mobile-nav-link">О нас</a>
+          <a href="#application-form" class="btn btn-primary mobile-drawer-cta">Подать заявку на грант</a>
+          <button type="button" class="btn btn-secondary mobile-admin-btn" data-open-admin>
+            Админ-панель (демо)
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- 1. ГЕРОЙ-СЕКЦИЯ (Полноэкранное адаптивное слайдшоу на всю страницу) -->
+      <section class="hero-section" id="hero">
+        <figure class="hero-bg-slideshow" id="hero-slideshow" aria-label="Полноэкранное слайдшоу университетов">
+          <div class="hero-bg-stage" id="slideshow-stage">
+            <!-- Активный полноэкранный слайд кампуса рендерится из script.js -->
+          </div>
+          <div class="hero-bg-scrim" aria-hidden="true"></div>
+        </figure>
+
+        <div class="container hero-overlay-container">
+          <div class="hero-intro">
+            <h1 class="hero-title">
+              Учись в топовых исламских вузах, мы подаем документы в Саудовскую Аравию, Египет, Катар
+            </h1>
+            <p class="hero-subtitle">
+              Государственные гранты с полным покрытием обучения, проживания в кампусе, ежемесячной стипендии, перелёта и подготовительного года языка — без знания арабского на старте.
+            </p>
+            <div class="hero-cta-group">
+              <a href="#universities" class="btn btn-gold btn-lg">Выбрать университет</a>
+              <a href="#application-form" class="btn btn-glass btn-lg">Бесплатная консультация</a>
+            </div>
+          </div>
+
+          <div class="hero-slide-dock">
+            <div class="hero-slide-meta" id="slideshow-meta-info">
+              <!-- Информация о текущем университете на слайде из script.js -->
+            </div>
+
+            <div class="hero-slide-nav">
+              <div class="slideshow-dots" id="slideshow-dots" aria-label="Переключение слайдов"></div>
+              <div class="slideshow-controls">
+                <span class="slideshow-counter tabular-nums" id="slideshow-counter">1 / 12</span>
+                <button
+                  type="button"
+                  class="slideshow-nav-btn"
+                  id="slideshow-prev"
+                  aria-label="Предыдущий университет"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  class="slideshow-nav-btn"
+                  id="slideshow-next"
+                  aria-label="Следующий университет"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Полоса ключевых параметров грантовых программ под полноэкранным Hero -->
+      <div class="hero-metrics-band">
+        <div class="container">
+          <div class="hero-metrics-strip" aria-label="Ключевые параметры грантовых программ">
+            <div class="metric-cell">
+              <span class="metric-value tabular-nums">100%</span>
+              <span class="metric-label">Покрытие обучения по государственным грантам</span>
+            </div>
+            <div class="metric-cell">
+              <span class="metric-value tabular-nums">6 стран</span>
+              <span class="metric-label">КСА, ОАЭ, Катар, Турция, Индонезия и Кувейт</span>
+            </div>
+            <div class="metric-cell">
+              <span class="metric-value tabular-nums">25+ вузов</span>
+              <span class="metric-label">Проверенные программы бакалавриата и магистратуры</span>
+            </div>
+            <div class="metric-cell">
+              <span class="metric-value tabular-nums">14 дней</span>
+              <span class="metric-label">Средний срок подготовки полного пакета документов</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. КАТАЛОГ УНИВЕРСИТЕТОВ (Ключевой интерактивный раздел) -->
+      <section class="section catalog-section" id="universities">
+        <div class="container">
+          <div class="section-header-row">
+            <div>
+              <p class="section-eyebrow">Каталог грантовых направлений</p>
+              <h2 class="section-title">Университеты и актуальные окна приёма</h2>
+            </div>
+            <p class="section-lead">
+              Отслеживайте открытые приёмные кампании, возрастные требования и состав гранта. Нажмите на карточку, чтобы открыть список документов.
+            </p>
+          </div>
+
+          <!-- Панель поиска и фильтрации -->
+          <div class="catalog-toolbar" role="region" aria-label="Фильтры каталога университетов">
+            <div class="search-box">
+              <label for="university-search" class="sr-only">Поиск университета по названию или городу</label>
+              <svg
+                class="search-icon"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input
+                type="search"
+                id="university-search"
+                class="search-input"
+                placeholder="Поиск по названию вуза, городу или программе..."
+                autocomplete="off"
+                maxlength="80"
+              />
+            </div>
+
+            <div class="status-segmented" role="group" aria-label="Фильтр по статусу приёма">
+              <button type="button" class="status-tab is-active" data-status-filter="all">
+                Все статусы
+              </button>
+              <button type="button" class="status-tab" data-status-filter="open">
+                Приём открыт
+              </button>
+              <button type="button" class="status-tab" data-status-filter="soon">
+                Скоро открытие
+              </button>
+              <button type="button" class="status-tab" data-status-filter="closed">
+                Закрыт
+              </button>
+            </div>
+          </div>
+
+          <!-- Фильтр по странам -->
+          <div class="country-filter-bar" id="country-filter-bar" role="group" aria-label="Фильтр по странам">
+            <!-- Заполняется динамически из universities.js -->
+          </div>
+
+          <div class="catalog-meta-bar">
+            <p class="catalog-count" id="catalog-count">Показано: <span class="tabular-nums">0</span> вузов</p>
+            <div class="catalog-meta-actions">
+              <button type="button" class="btn-text-reset" id="reset-filters-btn" hidden>
+                Сбросить фильтры
+              </button>
+              <button type="button" class="btn-admin-trigger" id="open-admin-btn" data-open-admin>
+                Админ-панель (демо)
+              </button>
+            </div>
+          </div>
+
+          <!-- Сетка карточек университетов -->
+          <div class="universities-grid" id="universities-grid" aria-live="polite">
+            <!-- Рендерится через script.js на основе universities.js -->
+          </div>
+
+          <!-- Состояние пустого поиска -->
+          <div class="empty-state" id="catalog-empty" hidden>
+            <h3 class="empty-state-title">По вашему запросу университеты не найдены</h3>
+            <p class="empty-state-text">
+              Попробуйте изменить страну, выбрать статус «Все статусы» или очистить строку поиска.
+            </p>
+            <button type="button" class="btn btn-secondary" id="empty-reset-btn">
+              Показать все университеты
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. АБИТУРИЕНТУ (Памятка, документы, этапы, FAQ) -->
+      <section class="section guide-section" id="applicant-guide">
+        <div class="container">
+          <div class="section-header-row">
+            <div>
+              <p class="section-eyebrow">Памятка абитуриенту</p>
+              <h2 class="section-title">Как проходит поступление на полный грант</h2>
+            </div>
+            <p class="section-lead">
+              Участие в грантовых конкурсах не требует идеального знания арабского или турецкого языка на старте — в большинстве вузов предусмотрен бесплатный подготовительный год.
+            </p>
+          </div>
+
+          <!-- Пошаговые этапы -->
+          <div class="steps-grid">
+            <article class="step-item">
+              <span class="step-index tabular-nums">01</span>
+              <h3 class="step-title">Диагностика профиля и подбор вузов</h3>
+              <p class="step-text">
+                Оцениваем ваш возраст, средний балл аттестата или диплома, языковой уровень и подбираем 4–6 реальных программ с максимальными шансами.
+              </p>
+            </article>
+            <article class="step-item">
+              <span class="step-index tabular-nums">02</span>
+              <h3 class="step-title">Сбор, перевод и заверение пакета</h3>
+              <p class="step-text">
+                Готовим переводы на арабский или английский, оформляем рекомендации, медицинские справки и проверяем каждую страницу на соответствие формату портала.
+              </p>
+            </article>
+            <article class="step-item">
+              <span class="step-index tabular-nums">03</span>
+              <h3 class="step-title">Регистрация и подача в окно приёма</h3>
+              <p class="step-text">
+                Корректно заполняем анкеты в системах Study in Saudi, Qatar University, Al Qasimia, Türkiye Bursları, KNB и загружаем документы без технических отказов.
+              </p>
+            </article>
+            <article class="step-item">
+              <span class="step-index tabular-nums">04</span>
+              <h3 class="step-title">Подготовка к интервью и зачисление</h3>
+              <p class="step-text">
+                Проводим тренировочное собеседование по типичным вопросам приёмной комиссии, отслеживаем приглашение и сопровождаем оформление учебной визы.
+              </p>
+            </article>
+          </div>
+
+          <!-- Базовый пакет документов + FAQ в 2 колонках -->
+          <div class="guide-split">
+            <div class="docs-panel">
+              <h3 class="panel-heading">Базовый список документов для старта</h3>
+              <p class="panel-subheading">
+                Точный перечень зависит от страны и вуза, но в 90% случаев вам понадобятся:
+              </p>
+              <ul class="docs-list">
+                <li>
+                  <span class="doc-name">Заграничный паспорт</span>
+                  <span class="doc-note">Срок действия не менее 18 месяцев на момент подачи</span>
+                </li>
+                <li>
+                  <span class="doc-name">Аттестат или диплом с приложением оценок</span>
+                  <span class="doc-note">Для учеников 11 класса — табель за 10 класс и 1 полугодие 11 класса</span>
+                </li>
+                <li>
+                  <span class="doc-name">Медицинская справка и сертификат прививок</span>
+                  <span class="doc-note">Оформляется по шаблону принимающей страны с переводом</span>
+                </li>
+                <li>
+                  <span class="doc-name">2 рекомендательных письма</span>
+                  <span class="doc-note">От директора школы, преподавателя или научного руководителя</span>
+                </li>
+                <li>
+                  <span class="doc-name">Мотивационное письмо (Statement of Purpose)</span>
+                  <span class="doc-note">Поможем составить структурно и без шаблонных клише</span>
+                </li>
+                <li>
+                  <span class="doc-name">Справка о несудимости и фото 4×6 см</span>
+                  <span class="doc-note">Свежая выписка с апостилем/переводом (по требованию вуза)</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="faq-panel">
+              <h3 class="panel-heading">Частые вопросы абитуриентов и родителей</h3>
+              <div class="faq-list" id="faq-list">
+                <div class="faq-item">
+                  <button type="button" class="faq-trigger" aria-expanded="true">
+                    <span>Можно ли поступить, если я сейчас учусь в 10 или 11 классе?</span>
+                    <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </button>
+                  <div class="faq-content">
+                    <p>
+                      Да. В большинстве грантовых программ (например, Türkiye Bursları, Катарский университет, ряд вузов Индонезии) заявки принимаются зимой и весной по текущей справке из школы и выписке оценок за 10 класс, а оригинал аттестата досылается после выпуска.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="faq-item">
+                  <button type="button" class="faq-trigger" aria-expanded="false">
+                    <span>Обязательно ли знать арабский или турецкий язык заранее?</span>
+                    <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </button>
+                  <div class="faq-content" hidden>
+                    <p>
+                      Нет. Для гуманитарных, шариатских и большинства государственных программ в КСА, ОАЭ, Турции и Кувейте предусмотрен бесплатный 1–2 годичный языковой курс (Махд аль-Луга / TÖMER) перед 1 курсом. Для англоязычных инженерных и IT-факультетов (HBKU, Khalifa, UI) потребуется IELTS от 5.5–6.5.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="faq-item">
+                  <button type="button" class="faq-trigger" aria-expanded="false">
+                    <span>Что именно оплачивает государственный грант?</span>
+                    <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </button>
+                  <div class="faq-content" hidden>
+                    <p>
+                      Полная стипендия покрывает 100% стоимости обучения, место в студенческом общежитии, медицинскую страховку, ежемесячную денежную выплату на питание и личные расходы, а во многих вузах (Медина, Аль-Касимия, Катар, Türkiye Bursları) — ещё и ежегодные авиабилеты домой и обратно.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="faq-item">
+                  <button type="button" class="faq-trigger" aria-expanded="false">
+                    <span>Почему заявки часто отклоняют при самостоятельной подаче?</span>
+                    <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </button>
+                  <div class="faq-content" hidden>
+                    <p>
+                      Самые частые причины — неточный перевод печатей, неверный формат сканов, расхождение в транслитерации ФИО между паспортом и аттестатом, пропуск скрытых этапов подтверждения на портале Study in Saudi или слабое мотивационное письмо. Мы проверяем каждый файл перед отправкой.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. УСЛУГИ (Асимметричная Bento-сетка) -->
+      <section class="section services-section" id="services">
+        <div class="container">
+          <div class="section-header-row">
+            <div>
+              <p class="section-eyebrow">Услуги Fatiha Educations</p>
+              <h2 class="section-title">Сопровождение без скрытых доплат и бюрократии</h2>
+            </div>
+            <p class="section-lead">
+              Работаем по прозрачному договору с фиксацией перечня вузов, сроков подготовки и регулярной отчётностью в личном чате.
+            </p>
+          </div>
+
+          <div class="services-bento">
+            <article class="service-card service-card-wide">
+              <div class="service-card-top">
+                <span class="service-num tabular-nums">01</span>
+                <span class="service-tag">Ключевой пакет</span>
+              </div>
+              <h3 class="service-title">Полное сопровождение поступления «под ключ»</h3>
+              <p class="service-desc">
+                Берём абитуриента с этапа оценки шансов и доводим до зачисления и оформления учебной визы. Подаём документы сразу в несколько университетов для страховки результата.
+              </p>
+              <ul class="service-deliverables">
+                <li>Индивидуальная стратегия по 3–6 вузам в выбранных странах</li>
+                <li>Полный перевод, нотариальное заверение и проверка всех бланков</li>
+                <li>Регистрация личных кабинетов и подача анкет без технических ошибок</li>
+                <li>Подготовка к устному собеседованию и сопровождение визового этапа</li>
+              </ul>
+              <div class="service-card-action">
+                <button type="button" class="btn btn-primary" data-prefill-service="Полное сопровождение «под ключ»">
+                  Выбрать полное сопровождение
+                </button>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-card-top">
+                <span class="service-num tabular-nums">02</span>
+              </div>
+              <h3 class="service-title">Проверка и академический перевод документов</h3>
+              <p class="service-desc">
+                Аккредитованный перевод аттестатов, дипломов, справок и рекомендаций на арабский, турецкий или английский язык строго по требованиям приёмных комиссий.
+              </p>
+              <ul class="service-deliverables">
+                <li>Сверка транслитерации ФИО с загранпаспортом</li>
+                <li>Оптимизация PDF-файлов под лимиты порталов</li>
+              </ul>
+            </article>
+
+            <article class="service-card">
+              <div class="service-card-top">
+                <span class="service-num tabular-nums">03</span>
+              </div>
+              <h3 class="service-title">Подача заявок в открытые окна</h3>
+              <p class="service-desc">
+                Если документы уже готовы — корректно загружаем анкету в Study in Saudi, Al Qasimia, Qatar University или Türkiye Bursları и выдаём все регистрационные номера.
+              </p>
+              <ul class="service-deliverables">
+                <li>Контроль сроков до минуты закрытия портала</li>
+                <li>Мониторинг уведомлений от приёмной комиссии</li>
+              </ul>
+            </article>
+
+            <article class="service-card service-card-wide-bottom">
+              <div class="service-card-top">
+                <span class="service-num tabular-nums">04</span>
+              </div>
+              <div class="service-row-split">
+                <div>
+                  <h3 class="service-title">Индивидуальная консультация и аудит шансов</h3>
+                  <p class="service-desc">
+                    Разберём вашу ситуацию за 45 минут: подскажем, какие вузы открыты прямо сейчас, каких документов не хватает и как усилить мотивационное письмо.
+                  </p>
+                </div>
+                <a href="#application-form" class="btn btn-secondary">Записаться на разбор</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. О НАС И РЕЗУЛЬТАТЫ (Секция доверия и доказательств) -->
+      <section class="section about-section" id="about">
+        <div class="container">
+          <div class="about-grid">
+            <div class="about-story">
+              <p class="section-eyebrow">О компании Fatiha Educations</p>
+              <h2 class="section-title">Помогаем студентам из СНГ учиться в лучших кампусах мира бесплатно</h2>
+              <p class="about-paragraph">
+                Мы специализируемся исключительно на грантовом образовании в Саудовской Аравии, ОАЭ, Катаре, Турции, Индонезии и Кувейте. Вместо шаблонных советов из интернета наша команда ежедневно работает с официальными порталами приёмных комиссий и актуальными квотами.
+              </p>
+              <p class="about-paragraph">
+                Родителям важно спокойствие, а абитуриенту — ясность. Поэтому каждый шаг от проверки первой справки до получения студенческой визы фиксируется в общем рабочем чате, а вы видите все скриншоты поданных заявок.
+              </p>
+
+              <div class="about-stats">
+                <div class="about-stat-item">
+                  <span class="about-stat-num tabular-nums">340+</span>
+                  <span class="about-stat-desc">Зачисленных студентов за последние 4 приёмные кампании</span>
+                </div>
+                <div class="about-stat-item">
+                  <span class="about-stat-num tabular-nums">92%</span>
+                  <span class="about-stat-desc">Допуск к рассмотрению комиссией без возврата документов</span>
+                </div>
+                <div class="about-stat-item">
+                  <span class="about-stat-num tabular-nums">24/7</span>
+                  <span class="about-stat-desc">Оперативная поддержка в WhatsApp и Telegram на всех этапах</span>
+                </div>
+              </div>
+
+              <div class="direct-messengers">
+                <a
+                  href="https://wa.me/79990000000?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D1%80%D0%BE%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BB%D0%B5%D0%BD%D0%B8%D1%8E%20%D0%BD%D0%B0%20%D0%B3%D1%80%D0%B0%D0%BD%D1%82."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-whatsapp"
+                >
+                  Написать в WhatsApp
+                </a>
+                <a
+                  href="https://t.me/fatih_educations"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-telegram"
+                >
+                  Написать в Telegram
+                </a>
+              </div>
+            </div>
+
+            <!-- Истории поступления (рядом с цифрами) -->
+            <div class="testimonials-column">
+              <article class="testimonial-card">
+                <p class="testimonial-quote">
+                  «Подавали документы сразу после 11 класса. Сам я не знал, как правильно перевести табель и оформить справки для Study in Saudi. Команда Fatiha Educations проверила всё за неделю, подали в Медину и Короля Сауда — в итоге получил приглашение на полный грант в Исламский университет Медины.»
+                </p>
+                <div class="testimonial-author">
+                  <strong>Ибрагим Каримов</strong>
+                  <span>Студент подготовительного факультета, Медина · Выпускник школы №14, Казань</span>
+                </div>
+              </article>
+
+              <article class="testimonial-card">
+                <p class="testimonial-quote">
+                  «Как мама выпускницы переживала за перелёт, проживание и оформление документов в Шарджу. Специалисты подробно объяснили условия кампуса Аль-Касимии, подготовили дочь к онлайн-собеседованию и помогли с визой. Сейчас дочь учится бесплатно и получает стипендию.»
+                </p>
+                <div class="testimonial-author">
+                  <strong>Аминат Магомедова</strong>
+                  <span>Мама студентки 1 курса Al Qasimia University, Шарджа (ОАЭ)</span>
+                </div>
+              </article>
+
+              <article class="testimonial-card">
+                <p class="testimonial-quote">
+                  «В 2025 году пробовали подаваться в Катар самостоятельно и получили отказ из-за ошибки в медицинском бланке. На следующий поток обратились в Fatiha Educations — пересобрали досье и мотивационное письмо, поступили на бакалавриат в Катарский университет.»
+                </p>
+                <div class="testimonial-author">
+                  <strong>Юсуф Абдуллаев</strong>
+                  <span>Бакалавриат экономики, Qatar University (Доха)</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. ФОРМА ЗАЯВКИ (Конверсионный блок) -->
+      <section class="section form-section" id="application-form">
+        <div class="container">
+          <div class="form-layout">
+            <div class="form-info">
+              <p class="section-eyebrow">Начните поступление сейчас</p>
+              <h2 class="section-title">Оставьте заявку на консультацию или подачу в вуз</h2>
+              <p class="form-lead">
+                Укажите желаемое направление и контактный номер. Мы свяжемся в течение 2 часов, оценим ваши шансы на грант и составим персональный список документов.
+              </p>
+
+              <div class="contact-cards">
+                <div class="contact-row">
+                  <span class="contact-label">WhatsApp</span>
+                  <a
+                    href="https://wa.me/79990000000"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-value"
+                  >+7 (999) 000-00-00</a>
+                </div>
+                <div class="contact-row">
+                  <span class="contact-label">Telegram</span>
+                  <a
+                    href="https://t.me/fatih_educations"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-value"
+                  >@fatih_educations</a>
+                </div>
+                <div class="contact-row">
+                  <span class="contact-label">График работы</span>
+                  <span class="contact-value">Пн–Сб, 09:00–20:00 (МСК)</span>
+                </div>
+              </div>
+            </div>
+
+            <form class="lead-form" id="lead-form" novalidate>
+              <div class="form-row-two">
+                <div class="field-group">
+                  <label for="applicant-name" class="field-label">Имя и фамилия абитуриента *</label>
+                  <input
+                    type="text"
+                    id="applicant-name"
+                    name="name"
+                    class="field-input"
+                    placeholder="Например: Тимур Алиев"
+                    required
+                    minlength="2"
+                    maxlength="80"
+                    autocomplete="name"
+                  />
+                  <span class="field-error" id="error-name" role="alert"></span>
+                </div>
+
+                <div class="field-group">
+                  <label for="applicant-age" class="field-label">Возраст (полных лет) *</label>
+                  <input
+                    type="number"
+                    id="applicant-age"
+                    name="age"
+                    class="field-input tabular-nums"
+                    placeholder="Например: 18"
+                    min="14"
+                    max="45"
+                    required
+                  />
+                  <span class="field-error" id="error-age" role="alert"></span>
+                </div>
+              </div>
+
+              <div class="form-row-two">
+                <div class="field-group">
+                  <label for="applicant-phone" class="field-label">Телефон (WhatsApp / Telegram) *</label>
+                  <input
+                    type="tel"
+                    id="applicant-phone"
+                    name="phone"
+                    class="field-input"
+                    placeholder="+7 (___) ___-__-__"
+                    required
+                    maxlength="25"
+                    autocomplete="tel"
+                  />
+                  <span class="field-error" id="error-phone" role="alert"></span>
+                </div>
+
+                <div class="field-group">
+                  <label for="applicant-country" class="field-label">Приоритетная страна</label>
+                  <select id="applicant-country" name="country" class="field-input">
+                    <option value="">Подобрать оптимальную страну</option>
+                    <option value="Саудовская Аравия">Саудовская Аравия</option>
+                    <option value="ОАЭ">ОАЭ</option>
+                    <option value="Катар">Катар</option>
+                    <option value="Турция">Турция</option>
+                    <option value="Индонезия">Индонезия</option>
+                    <option value="Кувейт">Кувейт</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label for="applicant-university" class="field-label">Выбранный университет или услуга</label>
+                <input
+                  type="text"
+                  id="applicant-university"
+                  name="university"
+                  class="field-input"
+                  placeholder="Например: Исламский университет Медины или Al Qasimia"
+                  maxlength="140"
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="applicant-comment" class="field-label">Кратко о вашей ситуации (класс/диплом, знание языков)</label>
+                <textarea
+                  id="applicant-comment"
+                  name="comment"
+                  class="field-input field-textarea"
+                  rows="3"
+                  maxlength="500"
+                  placeholder="Учусь в 11 классе, средний балл 4.8, хочу поступать на бакалавриат..."
+                ></textarea>
+              </div>
+
+              <div class="field-checkbox">
+                <input type="checkbox" id="applicant-consent" name="consent" required />
+                <label for="applicant-consent">
+                  Подтверждаю корректность данных и соглашаюсь на связь со специалистом Fatiha Educations в WhatsApp или Telegram *
+                </label>
+              </div>
+              <span class="field-error" id="error-consent" role="alert"></span>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-lg form-submit-btn">
+                  Отправить заявку
+                </button>
+              </div>
+
+              <!-- Блок подтверждения после успешной валидации -->
+              <div class="form-success-box" id="form-success-box" hidden aria-live="polite">
+                <h3 class="success-title">Заявка подготовлена</h3>
+                <p class="success-text" id="form-success-summary"></p>
+                <div class="success-actions">
+                  <a
+                    href="#"
+                    id="success-whatsapp-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-whatsapp"
+                  >
+                    Отправить сразу в WhatsApp
+                  </a>
+                  <a
+                    href="#"
+                    id="success-telegram-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-telegram"
+                  >
+                    Открыть в Telegram
+                  </a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ПОДВАЛ -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand-col">
+          <span class="footer-brand">Fatiha Educations</span>
+          <p class="footer-tagline">
+            Сопровождение при поступлении на государственные гранты в Саудовской Аравии, ОАЭ, Катаре, Турции, Индонезии и Кувейте.
+          </p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Навигация в подвале">
+          <a href="#universities">Вузы</a>
+          <a href="#applicant-guide">Абитуриенту</a>
+          <a href="#services">Услуги</a>
+          <a href="#about">О нас</a>
+          <a href="#application-form">Подать заявку</a>
+        </nav>
+
+        <div class="footer-legal">
+          <p>© <span id="current-year">2026</span> Fatiha Educations. Все права защищены.</p>
+          <button type="button" class="btn-admin-footer" data-open-admin>
+            Админ-панель (демо)
+          </button>
+        </div>
+      </div>
+    </footer>
+
+    <!-- МОДАЛЬНОЕ ОКНО ПОДРОБНОСТЕЙ УНИВЕРСИТЕТА -->
+    <div
+      class="modal-backdrop"
+      id="university-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      hidden
+    >
+      <div class="modal-dialog" id="modal-dialog">
+        <button
+          type="button"
+          class="modal-close"
+          id="modal-close-btn"
+          aria-label="Закрыть окно"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <div class="modal-body" id="modal-body-content">
+          <!-- Динамический контент из script.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО ЛЁГКОЙ АДМИН-ПАНЕЛИ (ДЕМО) -->
+    <div
+      class="modal-backdrop"
+      id="admin-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="admin-modal-title"
+      hidden
+    >
+      <div class="modal-dialog admin-modal-dialog">
+        <button
+          type="button"
+          class="modal-close"
+          id="admin-close-btn"
+          aria-label="Закрыть админ-панель"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <div class="admin-shell">
+          <div class="admin-topbar">
+            <div>
+              <h2 class="admin-title" id="admin-modal-title">Демо-админка: управление вузами и фото</h2>
+              <p class="admin-subtitle">
+                Изменения сохраняются в вашем браузере и сразу обновляют каталог и слайдшоу на Hero.
+              </p>
+            </div>
+            <div class="admin-topbar-actions">
+              <button type="button" class="btn btn-secondary" id="admin-new-btn">
+                + Добавить вуз
+              </button>
+              <button type="button" class="btn-text-reset" id="admin-reset-btn">
+                Сбросить базу
+              </button>
+            </div>
+          </div>
+
+          <div class="admin-workspace">
+            <aside class="admin-sidebar" aria-label="Список университетов">
+              <div class="admin-uni-list" id="admin-uni-list">
+                <!-- Заполняется динамически -->
+              </div>
+            </aside>
+
+            <form class="admin-editor" id="admin-editor-form" novalidate>
+              <input type="hidden" id="admin-uni-id" />
+
+              <div class="admin-preview-row">
+                <img
+                  src="/src/assets/images/campus_saudi_medina_1795491434565.jpg"
+                  alt="Предпросмотр фото кампуса"
+                  class="admin-img-preview"
+                  id="admin-img-preview"
+                />
+                <div class="admin-img-controls">
+                  <div class="field-group">
+                    <label for="admin-image-preset" class="field-label">Выбрать готовое фото кампуса</label>
+                    <select id="admin-image-preset" class="field-input"></select>
+                  </div>
+                  <div class="field-group">
+                    <label for="admin-image-upload" class="field-label">Или загрузить свою картинку</label>
+                    <input
+                      type="file"
+                      id="admin-image-upload"
+                      class="admin-file-input"
+                      accept="image/png, image/jpeg, image/webp"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row-two">
+                <div class="field-group">
+                  <label for="admin-name" class="field-label">Название вуза *</label>
+                  <input type="text" id="admin-name" class="field-input" required maxlength="120" />
+                </div>
+                <div class="field-group">
+                  <label for="admin-country" class="field-label">Страна *</label>
+                  <select id="admin-country" class="field-input" required>
+                    <option value="Саудовская Аравия">Саудовская Аравия</option>
+                    <option value="ОАЭ">ОАЭ</option>
+                    <option value="Катар">Катар</option>
+                    <option value="Турция">Турция</option>
+                    <option value="Индонезия">Индонезия</option>
+                    <option value="Кувейт">Кувейт</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row-two">
+                <div class="field-group">
+                  <label for="admin-city" class="field-label">Город *</label>
+                  <input type="text" id="admin-city" class="field-input" required maxlength="80" />
+                </div>
+                <div class="field-group">
+                  <label for="admin-status" class="field-label">Статус приёма *</label>
+                  <select id="admin-status" class="field-input" required>
+                    <option value="open">Приём открыт</option>
+                    <option value="soon">Скоро открытие</option>
+                    <option value="closed">Закрыт</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row-two">
+                <div class="field-group">
+                  <label for="admin-age" class="field-label">Возрастные ограничения</label>
+                  <input type="text" id="admin-age" class="field-input" maxlength="80" placeholder="17–25 лет" />
+                </div>
+                <div class="field-group">
+                  <label for="admin-dates" class="field-label">Даты приёма</label>
+                  <input type="text" id="admin-dates" class="field-input" maxlength="100" placeholder="Май — октябрь 2026" />
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label for="admin-short-grant" class="field-label">Краткое описание гранта</label>
+                <textarea id="admin-short-grant" class="field-input field-textarea" rows="2" maxlength="260"></textarea>
+              </div>
+
+              <div class="admin-feedback" id="admin-feedback" hidden aria-live="polite"></div>
+
+              <div class="admin-editor-footer">
+                <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                <button type="button" class="btn btn-danger-outline" id="admin-delete-btn">
+                  Удалить вуз
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/script.js"></script>
+  </body>
+</html>
