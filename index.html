@@ -27,12 +27,34 @@
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
 
-    <!-- Типографика: Plus Jakarta Sans (заголовки) + Manrope (текст) + JetBrains Mono (числа) -->
+    <meta name="theme-color" content="#071f4a" />
+
+    <!-- Типографика: неблокирующая загрузка шрифтов для мгновенного первого рендера на мобильном интернете -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      id="google-fonts-css"
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Manrope:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
       rel="stylesheet"
+      media="print"
+    />
+
+    <!-- Приоритетная предзагрузка первого слайда Hero под размер экрана -->
+    <link
+      rel="preload"
+      as="image"
+      type="image/webp"
+      href="/src/assets/images/campus_saudi_medina_1795491434565-sm.webp"
+      media="(max-width: 767px)"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      type="image/webp"
+      href="/src/assets/images/campus_saudi_medina_1795491434565-lg.webp"
+      media="(min-width: 768px)"
+      fetchpriority="high"
     />
 
     <link rel="stylesheet" href="/style.css" />
@@ -45,13 +67,18 @@
       <div class="container header-inner">
         <!-- Зона 1: Логотип -->
         <a href="#hero" class="brand-mark">
-          <img
-            src="/assets/aistudio/photo_2024-02-02_00-17-37_37289492.jpg"
-            alt="Логотип Fatiha Educations"
-            class="brand-logo"
-            width="38"
-            height="38"
-          />
+          <picture class="brand-logo-picture">
+            <source srcset="/assets/aistudio/logo-96.webp" type="image/webp" />
+            <img
+              src="/assets/aistudio/photo_2024-02-02_00-17-37_37289492.jpg"
+              alt="Логотип Fatiha Educations"
+              class="brand-logo"
+              width="38"
+              height="38"
+              decoding="sync"
+              fetchpriority="high"
+            />
+          </picture>
           <span class="brand-text">Fatiha <span class="brand-accent">Educations</span></span>
         </a>
 
@@ -130,9 +157,23 @@
           <a href="#about" class="nav-link">О нас</a>
         </nav>
 
-        <!-- Зона 3: Единственная основная кнопка действия -->
+        <!-- Зона 3: Основная кнопка действия и меню-троеточие -->
         <div class="header-actions">
           <a href="#application-form" class="btn btn-primary header-cta">Подать заявку</a>
+          <button
+            type="button"
+            class="header-dots-btn"
+            id="admin-dots-btn"
+            data-open-admin
+            aria-label="Открыть админ-панель"
+            title="Админ-панель"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <circle cx="12" cy="5" r="2"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+              <circle cx="12" cy="19" r="2"></circle>
+            </svg>
+          </button>
           <button
             type="button"
             class="mobile-menu-toggle"
@@ -176,9 +217,6 @@
           <a href="#services" class="mobile-nav-link">Услуги</a>
           <a href="#about" class="mobile-nav-link">О нас</a>
           <a href="#application-form" class="btn btn-primary mobile-drawer-cta">Подать заявку на грант</a>
-          <button type="button" class="btn btn-secondary mobile-admin-btn" data-open-admin>
-            Админ-панель (демо)
-          </button>
         </div>
       </div>
     </header>
@@ -188,18 +226,39 @@
       <section class="hero-section" id="hero">
         <figure class="hero-bg-slideshow" id="hero-slideshow" aria-label="Полноэкранное слайдшоу университетов">
           <div class="hero-bg-stage" id="slideshow-stage">
-            <!-- Активный полноэкранный слайд кампуса рендерится из script.js -->
+            <div class="hero-bg-slide is-active" data-initial-slide="true">
+              <div
+                class="media-lqip-bg"
+                style="background-image: url('data:image/webp;base64,UklGRtAAAABXRUJQVlA4IMQAAACwBQCdASoYABIAPt1kqE+opaOiKAqpEBuJYgCsIO6BhU6iBUA/Ssqy+L1e6W5Irv1fBQcy5UAA/ll+zCoqD+IaM9vENHh7zQjnQuk8Z1psKxgCkGdR04G5w25raZ9aBcLhrxXUEX/1uJr7laCPYhDtNwLv9rYQj+1i7LvKwxaAhArg9b62el+il/EZOkjETqE9vzow2nEYPjZYaE2qlqyWZNYJvSul8s7vjqH3e1OfQtf6QZF+KwyiTFozgoyV7DeIQAAA')"
+                aria-hidden="true"
+              ></div>
+              <picture class="progressive-picture">
+                <source
+                  type="image/webp"
+                  srcset="/src/assets/images/campus_saudi_medina_1795491434565-sm.webp 560w, /src/assets/images/campus_saudi_medina_1795491434565-lg.webp 1200w"
+                  sizes="100vw"
+                />
+                <img
+                  src="/src/assets/images/campus_saudi_medina_1795491434565.jpg"
+                  alt="Исламский университет Медины — Саудовская Аравия"
+                  class="hero-bg-img progressive-img"
+                  width="1200"
+                  height="896"
+                  decoding="sync"
+                  fetchpriority="high"
+                  referrerpolicy="no-referrer"
+                />
+              </picture>
+            </div>
           </div>
           <div class="hero-bg-scrim" aria-hidden="true"></div>
         </figure>
 
         <div class="container hero-overlay-container">
           <div class="hero-intro">
-            <h1 class="hero-title">
-              Учись в топовых исламских вузах, мы подаем документы в Саудовскую Аравию, Египет, Катар
-            </h1>
+            <h1 class="hero-title">Учись в лучших исламских вузах</h1>
             <p class="hero-subtitle">
-              Государственные гранты с полным покрытием обучения, проживания в кампусе, ежемесячной стипендии, перелёта и подготовительного года языка — без знания арабского на старте.
+              Полные гранты на обучение, жильё и перелёт без знания арабского на старте.
             </p>
             <div class="hero-cta-group">
               <a href="#universities" class="btn btn-gold btn-lg">Выбрать университет</a>
@@ -334,9 +393,6 @@
             <div class="catalog-meta-actions">
               <button type="button" class="btn-text-reset" id="reset-filters-btn" hidden>
                 Сбросить фильтры
-              </button>
-              <button type="button" class="btn-admin-trigger" id="open-admin-btn" data-open-admin>
-                Админ-панель (демо)
               </button>
             </div>
           </div>
@@ -860,9 +916,6 @@
 
         <div class="footer-legal">
           <p>© <span id="current-year">2026</span> Fatiha Educations. Все права защищены.</p>
-          <button type="button" class="btn-admin-footer" data-open-admin>
-            Админ-панель (демо)
-          </button>
         </div>
       </div>
     </footer>
@@ -946,10 +999,13 @@
 
               <div class="admin-preview-row">
                 <img
-                  src="/src/assets/images/campus_saudi_medina_1795491434565.jpg"
+                  src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                   alt="Предпросмотр фото кампуса"
                   class="admin-img-preview"
                   id="admin-img-preview"
+                  loading="lazy"
+                  width="180"
+                  height="135"
                 />
                 <div class="admin-img-controls">
                   <div class="field-group">

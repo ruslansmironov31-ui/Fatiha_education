@@ -46,6 +46,44 @@ export const CAMPUS_IMAGE_PRESETS = [
   },
 ];
 
+export const IMAGE_VARIANTS = {
+  '/src/assets/images/campus_saudi_medina_1795491434565.jpg': {
+    sm: '/src/assets/images/campus_saudi_medina_1795491434565-sm.webp',
+    lg: '/src/assets/images/campus_saudi_medina_1795491434565-lg.webp',
+    blur: 'data:image/webp;base64,UklGRtAAAABXRUJQVlA4IMQAAACwBQCdASoYABIAPt1kqE+opaOiKAqpEBuJYgCsIO6BhU6iBUA/Ssqy+L1e6W5Irv1fBQcy5UAA/ll+zCoqD+IaM9vENHh7zQjnQuk8Z1psKxgCkGdR04G5w25raZ9aBcLhrxXUEX/1uJr7laCPYhDtNwLv9rYQj+1i7LvKwxaAhArg9b62el+il/EZOkjETqE9vzow2nEYPjZYaE2qlqyWZNYJvSul8s7vjqH3e1OfQtf6QZF+KwyiTFozgoyV7DeIQAAA',
+  },
+  '/src/assets/images/campus_uae_sharjah_1795491434703.jpg': {
+    sm: '/src/assets/images/campus_uae_sharjah_1795491434703-sm.webp',
+    lg: '/src/assets/images/campus_uae_sharjah_1795491434703-lg.webp',
+    blur: 'data:image/webp;base64,UklGRtQAAABXRUJQVlA4IMgAAABwBQCdASoYABIAPt1mp1AopaMiqAqpEBuJZgC7MxgBs9Sfw67CfTk+OE1CKPDkJnW3DtNAAP7Uhm14JgzWzUFkothOUKKrGpLUMstXAWo4kD3w6ysFS/ULBm6pVKFOSBzISfvMT9OjV4j0C2h3Zu5MXoKhhof6Jlr63ZXL2quAnqUroQ7Ssv3FKxZ8zPIIj/8OhCoqP6Ue1Rbf/PuR+0rxLjVJzQUyutwmCrMpIY4nsdlYBlBpNX4vDQhDoEGtAhP8KhMOdAAAAA==',
+  },
+  '/src/assets/images/campus_qatar_doha_1795491435202.jpg': {
+    sm: '/src/assets/images/campus_qatar_doha_1795491435202-sm.webp',
+    lg: '/src/assets/images/campus_qatar_doha_1795491435202-lg.webp',
+    blur: 'data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAAAwBQCdASoYABIAPt1mrFCopSQiqAgBEBuJYgCdM1XBlgjj/Pgj5K18sZe+6jzFv+ygQAD+02FgYVEdDtXXS92re1okGX3gyXbITMmwWA9JPjblV2jmgWAUi631bw/r/7u5NX9XBY40yjLYUWSH2Y7PGOTTi56wmrr+7ZP/EUlPFN/ZRMkJ7ntyl62dqsEKsYOUOOnC1m1tzmw0QsoszssbwWdTq0e88AAq3+AA',
+  },
+  '/src/assets/images/campus_turkey_istanbul_1795491436316.jpg': {
+    sm: '/src/assets/images/campus_turkey_istanbul_1795491436316-sm.webp',
+    lg: '/src/assets/images/campus_turkey_istanbul_1795491436316-lg.webp',
+    blur: 'data:image/webp;base64,UklGRtoAAABXRUJQVlA4IM4AAABQBQCdASoYABIAPt1mp1AopaMiqAqpEBuJQBYj2hgnDRIB9A5vGocSgGB3jl55FobE4MAA/k+dBpe1LfjSM08c9Qd4CUHYOM6LsJ1+EovaXYXiFlR+yxP1pY2518Lhw1eE/gCPsPdzQswPm8c/sQKn9B+ZpjyDeAcjNF8rzEB2AB5AwpeOPjAxk/NqqCxVKjjnWfQzkRkmbdyiurzHqbMyOGUCv85akMwXerFybIn/jCusyRqaGscU6n2Vrq4I4HTxTcWA+JHoVcDqrAAAAA==',
+  },
+  '/src/assets/images/campus_indonesia_jakarta_1795491435554.jpg': {
+    sm: '/src/assets/images/campus_indonesia_jakarta_1795491435554-sm.webp',
+    lg: '/src/assets/images/campus_indonesia_jakarta_1795491435554-lg.webp',
+    blur: 'data:image/webp;base64,UklGRsYAAABXRUJQVlA4ILoAAAAQBQCdASoYABIAPt1kq0+opaOiKAqpEBuJQBg5giM/OEDhXkMyDwcquuB0PdGT339AAP7qhKfMtscz4wbWVAxf0btkziexIC1XpJUG4/UHE9impvNLZGhUraslmZwpnMQ03T42tNEy2O7z3tBUURWb0cTtmFyjjAhS/1Xg626cginTaKl9DhwU48wFYQB5raCADXNvJNbhfIe+RfXywIdiKDc/xUvMpuPv9fsuyELYvZUuS3Ac8HfgAAA=',
+  },
+  '/src/assets/images/campus_kuwait_city_1795491436422.jpg': {
+    sm: '/src/assets/images/campus_kuwait_city_1795491436422-sm.webp',
+    lg: '/src/assets/images/campus_kuwait_city_1795491436422-lg.webp',
+    blur: 'data:image/webp;base64,UklGRtAAAABXRUJQVlA4IMQAAABwBQCdASoYABIAPt1kqU+opSOiKAqpEBuJYgCsOUFUAAp1W+rSwHBxu2apdk4G4J+HUBsgAP3eQlcx50/mlli9NsKs2zhNy5vFPnFMH0Odk1OOvrhVZ18DoLp/TfVkqC1uD+XXTPzd69TmbPopCgpNIa1ZFrbPJHkFzpeD19huudExoEt9F3gbVLV3PHfQ1W6AOQZVWIrfI42kV7vFwum3SznPmut795FWDwFui46TL4RM8kpUnP1/gcyrEED0UxqnIAAA',
+  },
+  '/src/assets/images/hero_fatih_campus_1795491435106.jpg': {
+    sm: '/src/assets/images/hero_fatih_campus_1795491435106-sm.webp',
+    lg: '/src/assets/images/hero_fatih_campus_1795491435106-lg.webp',
+    blur: 'data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAACQBACdASoYAA0APt1cpkyopSOiMAgBEBuJQBOmUDX/xbE7JLNWSDM5g7KRBngA/ptTJX46TIeKTCj206LviGXy5x2U+ajZUSi0CORia8mL3aSkbXqc/2KcQnzvIxHFzEsCpKQJhuGOkwlftRG48M9i4A8ItVYKWhmpulC0MAvYrmiQGe5+xMOYmmX0ybj8QCRNHLxPLuOpCTbtOz5gIPxJDbYg6x2A598r0HC5m/LAAA==',
+  },
+};
+
 export const COUNTRIES = [
   'Все страны',
   'Саудовская Аравия',

@@ -8,12 +8,34 @@
 import {
   UNIVERSITIES as DEFAULT_UNIVERSITIES,
   CAMPUS_IMAGE_PRESETS,
+  IMAGE_VARIANTS,
   COUNTRIES,
   STATUS_META,
   CONTACT_CONFIG,
 } from './universities.js';
 
 const STORAGE_KEY = 'fatiha_demo_universities_v1';
+const preloadedUrls = new Set();
+
+function enableAsyncFonts() {
+  const link = document.getElementById('google-fonts-css');
+  if (link && link.media !== 'all') {
+    link.media = 'all';
+  }
+}
+
+function getNetworkProfile() {
+  const conn =
+    navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  const saveData = Boolean(conn?.saveData);
+  const effectiveType = String(conn?.effectiveType || '');
+  const isSlow =
+    saveData ||
+    effectiveType === 'slow-2g' ||
+    effectiveType === '2g' ||
+    effectiveType === '3g';
+  return { saveData, isSlow, effectiveType };
+}
 
 // ============================================================================
 // 1. БЕЗОПАСНОСТЬ И САНИТИЗАЦИЯ ВВОДА
@@ -55,6 +77,87 @@ function safeImageSrc(src) {
     }
   }
   return '/src/assets/images/hero_fatih_campus_1795491435106.jpg';
+}
+
+function buildProgressiveMediaHtml({
+  src,
+  alt,
+  imgClass,
+  sizes = '100vw',
+  loading = 'lazy',
+  decoding = 'async',
+  fetchPriority = 'auto',
+  width = 640,
+  height = 480,
+  includeShimmer = true,
+}) {
+  const safeSrc = safeImageSrc(src);
+  const variants = IMAGE_VARIANTS[safeSrc];
+  const { saveData } = getNetworkProfile();
+
+  const lqipHtml = variants?.blur
+    ? `<div class="media-lqip-bg" style="background-image: url('${variants.blur}')" aria-hidden="true"></div>`
+    : '';
+  const shimmerHtml = includeShimmer
+    ? '<div class="media-shimmer" aria-hidden="true"></div>'
+    : '';
+
+  const webpSourceHtml = variants
+    ? `<source type="image/webp" srcset="${
+        saveData
+          ? escapeHtml(variants.sm)
+          : `${escapeHtml(variants.sm)} 560w, ${escapeHtml(variants.lg)} 1200w`
+      }" sizes="${escapeHtml(sizes)}" />`
+    : '';
+
+  return `
+    ${lqipHtml}
+    ${shimmerHtml}
+    <picture class="progressive-picture">
+      ${webpSourceHtml}
+      <img
+        src="${escapeHtml(safeSrc)}"
+        alt="${escapeHtml(alt)}"
+        class="${escapeHtml(imgClass)} progressive-img"
+        loading="${escapeHtml(loading)}"
+        decoding="${escapeHtml(decoding)}"
+        fetchpriority="${escapeHtml(fetchPriority)}"
+        width="${Number(width) || 640}"
+        height="${Number(height) || 480}"
+        referrerpolicy="no-referrer"
+      />
+    </picture>
+  `;
+}
+
+function attachProgressiveImages(rootEl, onImageReady) {
+  if (!rootEl) return;
+  rootEl.querySelectorAll('.progressive-img').forEach((img) => {
+    const wrapper =
+      img.closest('.uni-card-media, .hero-bg-slide, .modal-cover-wrap') ||
+      img.parentElement;
+
+    const markLoaded = () => {
+      img.classList.add('is-loaded');
+      if (wrapper) wrapper.classList.add('is-media-loaded');
+      if (typeof onImageReady === 'function') onImageReady(img);
+    };
+
+    if (img.complete && img.naturalWidth > 0) {
+      markLoaded();
+      return;
+    }
+
+    img.addEventListener('load', markLoaded, { once: true });
+    img.addEventListener(
+      'error',
+      () => {
+        if (wrapper) wrapper.classList.add('is-media-loaded');
+        if (typeof onImageReady === 'function') onImageReady(img);
+      },
+      { once: true }
+    );
+  });
 }
 
 /**
@@ -238,17 +341,22 @@ function createUniversityCard(uni) {
   const card = document.createElement('article');
   card.className = 'uni-card';
 
+  const mediaHtml = buildProgressiveMediaHtml({
+    src: uni.image,
+    alt: `${uni.name} — ${uni.city}, ${uni.country}`,
+    imgClass: 'uni-card-img',
+    sizes: '(max-width: 699px) 94vw, (max-width: 1079px) 46vw, 380px',
+    loading: 'lazy',
+    decoding: 'async',
+    fetchPriority: 'low',
+    width: 640,
+    height: 480,
+    includeShimmer: true,
+  });
+
   card.innerHTML = `
     <div class="uni-card-media">
-      <img
-        src="${escapeHtml(safeImageSrc(uni.image))}"
-        alt="${escapeHtml(uni.name)} — ${escapeHtml(uni.city)}, ${escapeHtml(uni.country)}"
-        class="uni-card-img"
-        loading="lazy"
-        width="640"
-        height="480"
-        referrerpolicy="no-referrer"
-      />
+      ${mediaHtml}
     </div>
     <div class="uni-card-body">
       <div class="uni-card-header">
@@ -284,6 +392,7 @@ function createUniversityCard(uni) {
     </div>
   `;
 
+  attachProgressiveImages(card);
   return card;
 }
 
@@ -359,13 +468,23 @@ function openUniversityModal(universityId) {
     .map((item) => `<li>${escapeHtml(item)}</li>`)
     .join('');
 
+  const modalMediaHtml = buildProgressiveMediaHtml({
+    src: uni.image,
+    alt: uni.name,
+    imgClass: 'modal-cover',
+    sizes: '(max-width: 760px) 95vw, 760px',
+    loading: 'eager',
+    decoding: 'async',
+    fetchPriority: 'high',
+    width: 1200,
+    height: 675,
+    includeShimmer: true,
+  });
+
   dom.modalBody.innerHTML = `
-    <img
-      src="${escapeHtml(safeImageSrc(uni.image))}"
-      alt="${escapeHtml(uni.name)}"
-      class="modal-cover"
-      referrerpolicy="no-referrer"
-    />
+    <div class="modal-cover-wrap">
+      ${modalMediaHtml}
+    </div>
     <div class="modal-content-pad">
       <div class="modal-meta-line">
         <span class="status-tag ${escapeHtml(statusInfo.className)}">
@@ -441,6 +560,8 @@ function openUniversityModal(universityId) {
       prefillApplicationForm(uni.name, uni.country);
     });
   }
+
+  attachProgressiveImages(dom.modalBody);
 
   state.lastFocusedElement = document.activeElement;
   dom.modal.hidden = false;
@@ -669,7 +790,34 @@ function initNavigationAndFaq() {
 // 9. СЛАЙДШОУ УНИВЕРСИТЕТОВ НА HERO
 // ============================================================================
 
-function renderHeroSlide() {
+function preloadNextHeroSlide(currentIndex) {
+  if (universitiesData.length <= 1) return;
+  const { saveData, isSlow } = getNetworkProfile();
+  if (saveData) return;
+
+  const nextIndex = (currentIndex + 1) % universitiesData.length;
+  const nextUni = universitiesData[nextIndex];
+  if (!nextUni) return;
+
+  const safeSrc = safeImageSrc(nextUni.image);
+  const variants = IMAGE_VARIANTS[safeSrc];
+  const isMobileViewport = window.innerWidth < 768;
+  const targetUrl = variants
+    ? isMobileViewport || isSlow
+      ? variants.sm
+      : variants.lg
+    : safeSrc;
+
+  if (!targetUrl || preloadedUrls.has(targetUrl)) return;
+  preloadedUrls.add(targetUrl);
+
+  const preImg = new Image();
+  preImg.decoding = 'async';
+  if ('fetchPriority' in preImg) preImg.fetchPriority = 'low';
+  preImg.src = targetUrl;
+}
+
+function renderHeroSlide(forceReplace = false) {
   if (!dom.slideshowStage || universitiesData.length === 0) return;
   if (state.slideIndex >= universitiesData.length) {
     state.slideIndex = 0;
@@ -681,14 +829,67 @@ function renderHeroSlide() {
     dom.slideshowCounter.textContent = `${state.slideIndex + 1} / ${universitiesData.length}`;
   }
 
-  dom.slideshowStage.innerHTML = `
-    <img
-      src="${escapeHtml(safeImageSrc(uni.image))}"
-      alt="${escapeHtml(uni.name)} — ${escapeHtml(uni.country)}"
-      class="hero-bg-img"
-      referrerpolicy="no-referrer"
-    />
-  `;
+  const initialSlide = dom.slideshowStage.querySelector('[data-initial-slide="true"]');
+  if (
+    !forceReplace &&
+    initialSlide &&
+    state.slideIndex === 0 &&
+    uni.id === 'islamic-university-medina' &&
+    uni.image === '/src/assets/images/campus_saudi_medina_1795491434565.jpg'
+  ) {
+    initialSlide.removeAttribute('data-initial-slide');
+    attachProgressiveImages(initialSlide, () => {
+      preloadNextHeroSlide(0);
+    });
+  } else {
+    const incomingSlide = document.createElement('div');
+    incomingSlide.className = 'hero-bg-slide';
+    incomingSlide.innerHTML = buildProgressiveMediaHtml({
+      src: uni.image,
+      alt: `${uni.name} — ${uni.country}`,
+      imgClass: 'hero-bg-img',
+      sizes: '100vw',
+      loading: 'eager',
+      decoding: 'async',
+      fetchPriority: 'high',
+      width: 1200,
+      height: 896,
+      includeShimmer: false,
+    });
+
+    const oldSlides = Array.from(dom.slideshowStage.querySelectorAll('.hero-bg-slide'));
+    dom.slideshowStage.appendChild(incomingSlide);
+
+    const activateSlide = () => {
+      requestAnimationFrame(() => {
+        incomingSlide.classList.add('is-active');
+      });
+      window.setTimeout(() => {
+        oldSlides.forEach((el) => {
+          if (el !== incomingSlide && el.parentNode === dom.slideshowStage) {
+            el.remove();
+          }
+        });
+      }, 460);
+      preloadNextHeroSlide(state.slideIndex);
+    };
+
+    if (oldSlides.length === 0) {
+      incomingSlide.classList.add('is-active');
+      attachProgressiveImages(incomingSlide, () => {
+        preloadNextHeroSlide(state.slideIndex);
+      });
+    } else {
+      let settled = false;
+      const done = () => {
+        if (settled) return;
+        settled = true;
+        activateSlide();
+      };
+      attachProgressiveImages(incomingSlide, done);
+      window.setTimeout(done, 1200);
+    }
+  }
 
   if (dom.slideshowMetaInfo) {
     dom.slideshowMetaInfo.innerHTML = `
@@ -721,7 +922,7 @@ function renderHeroSlide() {
       dot.setAttribute('aria-label', `Перейти к слайду ${index + 1}: ${item.name}`);
       dot.addEventListener('click', () => {
         state.slideIndex = index;
-        renderHeroSlide();
+        renderHeroSlide(true);
         startSlideshowTimer();
       });
       dom.slideshowDots.appendChild(dot);
@@ -733,16 +934,18 @@ function stepHeroSlide(delta) {
   if (universitiesData.length === 0) return;
   state.slideIndex =
     (state.slideIndex + delta + universitiesData.length) % universitiesData.length;
-  renderHeroSlide();
+  renderHeroSlide(true);
 }
 
 function startSlideshowTimer() {
   stopSlideshowTimer();
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReduced || universitiesData.length <= 1) return;
+  const { isSlow } = getNetworkProfile();
+  const intervalMs = isSlow ? 6500 : 4500;
   state.slideTimer = window.setInterval(() => {
     stepHeroSlide(1);
-  }, 4500);
+  }, intervalMs);
 }
 
 function stopSlideshowTimer() {
@@ -864,7 +1067,7 @@ function handleAdminImageUpload(event) {
   reader.onload = () => {
     const img = new Image();
     img.onload = () => {
-      const maxW = 960;
+      const maxW = 800;
       const scale = img.width > maxW ? maxW / img.width : 1;
       const canvas = document.createElement('canvas');
       canvas.width = Math.round(img.width * scale);
@@ -872,10 +1075,13 @@ function handleAdminImageUpload(event) {
       const ctx = canvas.getContext('2d');
       if (!ctx) return;
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-      const compressed = canvas.toDataURL('image/jpeg', 0.82);
+      const webpData = canvas.toDataURL('image/webp', 0.78);
+      const compressed = webpData.startsWith('data:image/webp')
+        ? webpData
+        : canvas.toDataURL('image/jpeg', 0.78);
       state.pendingAdminImage = compressed;
       if (dom.adminImgPreview) dom.adminImgPreview.src = compressed;
-      showAdminFeedback('Картинка загружена. Нажмите «Сохранить изменения».');
+      showAdminFeedback('Картинка сжата и загружена. Нажмите «Сохранить изменения».');
     };
     img.src = String(reader.result || '');
   };
@@ -951,7 +1157,7 @@ function handleAdminSave(event) {
 
   const saved = saveUniversitiesToStorage(universitiesData);
   updateCatalog();
-  renderHeroSlide();
+  renderHeroSlide(true);
   loadUniversityIntoAdminForm(state.selectedAdminId);
   showAdminFeedback(
     saved
@@ -966,7 +1172,7 @@ function handleAdminDelete() {
   saveUniversitiesToStorage(universitiesData);
   state.slideIndex = 0;
   updateCatalog();
-  renderHeroSlide();
+  renderHeroSlide(true);
   loadUniversityIntoAdminForm(universitiesData[0].id);
   showAdminFeedback('Университет удалён из списка.');
 }
@@ -976,7 +1182,7 @@ function handleAdminReset() {
   saveUniversitiesToStorage(universitiesData);
   state.slideIndex = 0;
   updateCatalog();
-  renderHeroSlide();
+  renderHeroSlide(true);
   loadUniversityIntoAdminForm(universitiesData[0].id);
   showAdminFeedback('Список вузов восстановлен по умолчанию.');
 }
@@ -1006,12 +1212,14 @@ function closeAdminModal() {
 // ============================================================================
 
 function init() {
+  enableAsyncFonts();
+
   const yearEl = document.getElementById('current-year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
   renderCountryFilters();
   updateCatalog();
-  renderHeroSlide();
+  renderHeroSlide(false);
   startSlideshowTimer();
   initNavigationAndFaq();
 
